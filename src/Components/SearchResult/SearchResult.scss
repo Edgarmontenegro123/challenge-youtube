@@ -10,3 +10,12 @@
     font-style: italic;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .title {
+    &__subtitle{
+      font-size: medium;
+      margin: 0 1rem;
+    }
+  }
+}

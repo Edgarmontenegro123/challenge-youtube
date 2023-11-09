@@ -31,7 +31,7 @@ const SearchBar = () => {
                     <input
                         type='text'
                         className = 'searchBar__input'
-                        placeholder='Ingresar URL'
+                        placeholder='Enter a URL'
                         value={searchValue}
                         onChange={handleSearchChange}
                     />
@@ -39,12 +39,12 @@ const SearchBar = () => {
                         className = 'button'
                         id='searchBar__button'
                         type='submit'
-                        text = 'Buscar'
+                        text = 'Search'
                     />
                 </div>
             </div>
             {showTitleResult && <SearchResult value={showTitleResult}/>}
-            <Comments value={showCommentResult}/>
+            {showTitleResult && <Comments value={showCommentResult}/>}
         </form>
     );
 }
