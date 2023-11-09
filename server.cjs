@@ -7,7 +7,6 @@ app.use(cors());
 let visitCount = 0;
 
 app.get('/', (req, res) => {
-    // Incrementar el contador en cada visita
     visitCount ++;
     console.log(`¡Hola! Esta es la visita número ${visitCount}`);
     res.send(`${visitCount}`);
