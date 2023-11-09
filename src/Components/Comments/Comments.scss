@@ -1,0 +1,21 @@
+@import '../../index.scss';
+
+
+.card {
+  margin: 5rem auto;
+  border: none;
+  border-radius: 0.5rem;
+  color: $bgMain;
+  background-color: $textSoft;
+  box-shadow: 3px 3px 2px 1px #292F40;
+  padding: 10px;
+  width: 15rem;
+  text-align: center;
+  &__title{
+    font-weight: bolder;
+    font-size: x-large;
+  }
+  &__comment{
+    font-style: italic;
+  }
+}

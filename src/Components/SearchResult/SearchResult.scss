@@ -1,0 +1,12 @@
+@import '../../index.scss';
+
+.title{
+  text-align: center;
+  &__title{
+    font-weight: bolder;
+    color: $bgMain;
+  }
+  &__subtitle{
+    font-style: italic;
+  }
+}

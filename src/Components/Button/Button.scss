@@ -1,0 +1,27 @@
+@import '../../index.scss';
+
+.button{
+  width: 10vw;
+  height: 2rem;
+  border-radius: 5px;
+  text-align: center;
+  color: $textLight;
+  background-color: $red;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin-left: 1rem;
+  transition: background 0.1s ease-in-out;
+  &:hover{
+    background-color: $darkRed;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .button {
+    width: 25vw;
+    margin: 0 auto;
+  }
+}

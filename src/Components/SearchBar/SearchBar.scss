@@ -1,0 +1,40 @@
+@import '../../index.scss';
+
+.searchBar {
+  display: flex;
+  flex-direction: column; /* Cambia la dirección de flexión a 'column' para dispositivos móviles */
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
+  &__container {
+    display: flex;
+    flex-direction: column; /* Cambia la dirección de flexión a 'column' para dispositivos móviles */
+    align-items: center;
+  }
+
+  &__input {
+    text-align: center;
+    width: 30vw;
+    margin: 1rem 0; /* Cambia el margen para separar el campo de entrada en dispositivos móviles */
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    height: 2rem;
+    background-color: $textSoft;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .searchBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .searchBar__container {
+    flex-direction: row;
+  }
+}

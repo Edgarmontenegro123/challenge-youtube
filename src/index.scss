@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+$bgMain: rgb(37, 37, 37);
+$textLight: whitesmoke;
+$textDark: #1e2432;
+$red: rgb(255, 64, 64);
+$darkRed: #c3112d;
+$textMed: rgb(100,100,100);
+$textSoft: rgb(221, 221, 221);
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: rgb(119, 119, 119);
+  background-color: $textLight;
+}

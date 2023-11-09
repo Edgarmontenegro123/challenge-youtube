@@ -1,0 +1,94 @@
+@import '../../index.scss';
+
+.nav{
+  background-color: $bgMain;
+  .logo__searchbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .unilingo__logo{
+    margin: 1rem;
+    width: 150px;
+    height: 60px;
+  }
+  &__button{
+    width: 100%;
+    border-radius: 5px;
+    text-align: center;
+    color: $textLight;
+    background-color: $red;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background 0.1s ease-in-out;
+    &:hover{
+      background-color: $darkRed;
+    }
+  }
+  .input__search{
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    height: 1.5rem;
+    padding-left: 15px;
+  }
+  .div__links{
+    text-align: center;
+    padding: 8px;
+  }
+  .links{
+    color: $textLight;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bolder;
+    padding: 3px;
+    margin-right: 0.5rem;
+    &:hover{
+      color: $red;
+    }
+  }
+}
+
+@media screen and (min-width: 800px){
+  .nav{
+    background-color: $bgMain;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo__searchbar{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0;
+    }
+    .applaudo{
+      padding-left: 3rem;
+      width: 100px;
+      height: 100px;
+    }
+    .input__search{
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      height: 1.5rem;
+      padding-left: 15px;
+    }
+    .nav__button{
+      margin-left: 5%;
+    }
+    .links{
+      color: $textLight;
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: bolder;
+      padding: 5px;
+      margin-right: 5rem;
+    }
+  }
+}
