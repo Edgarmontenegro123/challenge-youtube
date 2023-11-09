@@ -43,6 +43,22 @@ const getUrlAxios = async (urlYoutube) => {
     }
 }
 
+const visitCounter = async () => {
+    try{
+        const response = await axios.get('http://localhost:3001')
+        console.log(response.data)
+        return response.data
+    }
+    catch(error) {
+        if (axios.isAxiosError(error)) {
+            console.error('AxiosError:', error.toJSON());
+        } else {
+            console.error('Error:', error);
+        }
+        return 0
+    }
+}
+
 export {
-    getUrlAxios
+    getUrlAxios, visitCounter
 }

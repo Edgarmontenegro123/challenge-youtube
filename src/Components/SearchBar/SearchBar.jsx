@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Button from '../Button/Button.jsx';
 import SearchResult from "../SearchResult/SearchResult.jsx";
+import Comments from "../Comments/Comments.jsx";
 import {getUrlAxios} from "../../Functions/Functions.jsx";
 import './SearchBar.scss'
-import Comments from "../Comments/Comments.jsx";
 
 const SearchBar = () => {
     const [searchValue, setSearchValue] = useState('');
