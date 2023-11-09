@@ -1,5 +1,5 @@
 import {UNILINGO_LOGO} from '../../Constants/Constants.jsx';
-import './NavBar.scss';
+import './Navbar.scss';
 
 const NavBar = () => {
     return(
