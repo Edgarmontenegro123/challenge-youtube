@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Button from '../Button/Button.jsx';
 import SearchResult from "../SearchResult/SearchResult.jsx";
 import Comments from "../Comments/Comments.jsx";
-import {getUrlAxios} from "../../Functions/Functions.jsx";
+import {getUrlAxios, sendLatestVideoTitle} from "../../Functions/Functions.jsx";
+import VideoTitleDisplay from "../VideoTitleDisplay/VideoTitleDisplay.jsx";
 import './SearchBar.scss'
 
 const SearchBar = () => {
@@ -16,10 +17,17 @@ const SearchBar = () => {
 
     const handleSearchSubmit = async (e) => {
         e.preventDefault();
-        const urlYoutube = searchValue
+        //Find in server
+        const titleResult = await getUrlAxios(searchValue)
+
+        if (titleResult && titleResult.videoTitle) {
+            await sendLatestVideoTitle(titleResult.videoTitle);
+        }
+
         setShowTitleResult(searchValue)
         setSearchValue('')
-        const titleResult = await getUrlAxios(urlYoutube)
+
+
         setShowTitleResult(titleResult.videoTitle)
         setShowCommentResult(titleResult.mostRecentComment)
     };
@@ -43,6 +51,7 @@ const SearchBar = () => {
                     />
                 </div>
             </div>
+            <VideoTitleDisplay/>
             {showTitleResult && <SearchResult value={showTitleResult}/>}
             {showTitleResult && <Comments value={showCommentResult}/>}
         </form>

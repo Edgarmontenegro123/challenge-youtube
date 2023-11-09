@@ -1,7 +1,6 @@
 import axios from "axios";
 import {API_KEY, YOUTUBE_URL} from "../Constants/Constants.jsx";
 
-
 const getUrlId = (urlYoutube) => {
     const parts = urlYoutube.split('/')
     const segment = parts.find(part => part.includes('watch' || part.includes('embed')))
@@ -43,22 +42,46 @@ const getUrlAxios = async (urlYoutube) => {
     }
 }
 
-const visitCounter = async () => {
+const getVisitCounter = async () => {
     try{
-        const response = await axios.get('http://localhost:3001')
-        console.log(response.data)
+        const response = await axios.get('http://localhost:3001/visit-counter')
         return response.data
     }
     catch(error) {
         if (axios.isAxiosError(error)) {
-            console.error('AxiosError:', error.toJSON());
+            console.error('getVisitCounter:', error.toJSON());
         } else {
-            console.error('Error:', error);
+            console.error('getVisitCounter:', error);
         }
         return 0
     }
 }
 
+const getLatestVideoTitle = async () => {
+    try {
+        const response = await axios.get('http://localhost:3001/last-title');
+        return response.data.latestVideoTitle
+    } catch (error) {
+        if (axios.isAxiosError(error)) {
+            console.error('getLastVideoTitle:', error.toJSON());
+        } else {
+            console.error('getLastVideoTitle:', error);
+        }
+        return null;
+    }
+};
+
+const sendLatestVideoTitle = async (videoTitle) => {
+    try {
+        await axios.post('http://localhost:3001/last-title', {
+            videoTitle: videoTitle,
+        });
+    } catch (error) {
+        console.error('Error sending latest video title:', error);
+    }
+};
+
+
 export {
-    getUrlAxios, visitCounter
+    getUrlAxios, getVisitCounter, getLatestVideoTitle, sendLatestVideoTitle
 }

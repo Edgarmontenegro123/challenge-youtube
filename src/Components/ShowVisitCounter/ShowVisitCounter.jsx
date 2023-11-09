@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {visitCounter} from "../../Functions/Functions.jsx";
+import {getVisitCounter} from "../../Functions/Functions.jsx";
 import './ShowVisitCounter.scss'
 
 const ShowVisitCounter =  () => {
@@ -7,7 +7,7 @@ const ShowVisitCounter =  () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const count = await visitCounter()
+            const count = await getVisitCounter()
             setVisitCount(count)
         }
         fetchData()
