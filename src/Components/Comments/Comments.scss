@@ -2,14 +2,14 @@
 
 
 .card {
-  margin: 5rem auto;
+  margin: 5rem auto 10rem auto;
   border: none;
   border-radius: 0.5rem;
   color: $bgMain;
   background-color: $textSoft;
   box-shadow: 3px 3px 2px 1px #292F40;
   padding: 10px;
-  width: 15rem;
+  width: 30rem;
   text-align: center;
   &__title{
     font-weight: bolder;
@@ -17,6 +17,8 @@
   }
   &__comment{
     font-style: italic;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
