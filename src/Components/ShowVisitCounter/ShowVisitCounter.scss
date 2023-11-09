@@ -1,0 +1,17 @@
+@import '../../index.scss';
+
+.visitor{
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  text-align: center;
+  color: $textLight;
+  background-color: $red;
+  border: none;
+  outline: none;
+  font-size: smaller;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin-left: 1rem;
+  transition: background 0.1s ease-in-out;
+}
