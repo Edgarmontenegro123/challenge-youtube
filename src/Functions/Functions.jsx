@@ -22,7 +22,7 @@ const getUrlAxios = async (urlYoutube) => {
             text: `Hey! Please enter a valid youtube url!`,
             icon: 'error'
         })
-        return {videoTitle: null, mostRecentComment: null, comments: []}
+        return {videoTitle: null, mostRecentComment: null, comments: [], urlAudio: null}
     }
 
     try {
@@ -39,7 +39,11 @@ const getUrlAxios = async (urlYoutube) => {
         const videoViewsResponse = await axios.get(videoViewsUrl)
         const videoViews = videoViewsResponse.data.items[0]?.statistics?.viewCount;
 
-        return {videoTitle, mostRecentComment, comments, videoViews}
+        // Create authorization to use this parte (fileDetails)
+        /*const audioDetails = ''
+        const urlAudio = ''*/
+
+        return {videoTitle, mostRecentComment, comments, videoViews/*, urlAudio*/}
     }
     catch(error) {
         console.error('Error getting video details or comments: ', error)

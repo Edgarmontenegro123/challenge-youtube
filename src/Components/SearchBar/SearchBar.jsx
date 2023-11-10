@@ -6,6 +6,7 @@ import {getUrlAxios, sendLatestVideoTitle} from "../../Functions/Functions.jsx";
 import VideoTitleDisplay from "../VideoTitleDisplay/VideoTitleDisplay.jsx";
 import ShowAllCommentsButton from "../ShowAllCommentsButton/ShowAllCommentsButton.jsx";
 import AllComments from "../Comments/AllComments.jsx";
+import MediaPlayer from "../MediaPlayer/Mediaplayer.jsx";
 import './SearchBar.scss'
 
 const SearchBar = () => {
@@ -15,6 +16,7 @@ const SearchBar = () => {
     const [allComments, setAllComments] = useState([])
     const [showAllComments, setShowAllComments] = useState(false);
     const [videoViews, setVideoViews] = useState(null)
+    // const [audioUrl, setAudioUrl] = useState('');
 
     const handleSearchChange = (e) => {
         setSearchValue(e.target.value);
@@ -26,7 +28,6 @@ const SearchBar = () => {
         //Find in server
         const titleResult = await getUrlAxios(searchValue)
 
-
         if (titleResult && titleResult.videoTitle) {
             await sendLatestVideoTitle(titleResult.videoTitle);
         }
@@ -35,6 +36,16 @@ const SearchBar = () => {
         setShowCommentResult(titleResult.mostRecentComment)
         setAllComments(titleResult.comments);
         setVideoViews(titleResult.videoViews)
+        // setAudioUrl(titleResult.audioUrl);
+
+        /*return () => {
+            const audio = new Audio(titleResult.audioUrl);
+            audio.currentTime = 30;
+            audio.play();
+            setTimeout(() => {
+                audio.pause();
+            }, 15000);
+        };*/
     };
 
     const handleShowAllComments = () => {
@@ -67,6 +78,7 @@ const SearchBar = () => {
             </form>
             {showTitleResult && <ShowAllCommentsButton text='More Comment!' onClick={handleShowAllComments}/>}
             {showAllComments && <AllComments allComments={allComments} videoViews={videoViews} />}
+            {showAllComments && <MediaPlayer/>}
         </>
     );
 }

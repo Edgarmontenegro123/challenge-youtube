@@ -1,0 +1,14 @@
+@import '../../index.scss';
+
+.mediaPlayer{
+  margin-bottom: 10rem;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+
+}
