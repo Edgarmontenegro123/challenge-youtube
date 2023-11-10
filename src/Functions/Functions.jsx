@@ -22,19 +22,22 @@ const getUrlAxios = async (urlYoutube) => {
             text: `Hey! Please enter a valid youtube url!`,
             icon: 'error'
         })
-        return {videoTitle: null, mostRecentComment: null}
+        return {videoTitle: null, mostRecentComment: null, comments: []}
     }
 
     try {
         const videoDetailsUrl = `${YOUTUBE_URL}videos?part=snippet&${API_KEY}&id=${videoId}`
         const videoDetailsResponse = await axios.get(videoDetailsUrl)
         const videoTitle = videoDetailsResponse.data.items[0]?.snippet?.title
+        const videoViews = videoDetailsResponse.data.items[0]?.statistics?.viewCount;
+        console.log('Video views Function: ', videoViews)
 
-        const commentsUrl = `${YOUTUBE_URL}commentThreads?${API_KEY}&videoId=${videoId}&part=snippet&maxResults=1&order=time`
+        const commentsUrl = `${YOUTUBE_URL}commentThreads?${API_KEY}&videoId=${videoId}&part=snippet&maxResults=20&order=time`
         const commentsResponse = await axios.get(commentsUrl);
         const mostRecentComment = commentsResponse.data.items[0]?.snippet.topLevelComment.snippet.textDisplay;
+        const comments = commentsResponse.data.items.map((item) => item.snippet.topLevelComment.snippet.textDisplay);
 
-        return {videoTitle, mostRecentComment}
+        return {videoTitle, mostRecentComment, comments, videoViews}
     }
     catch(error) {
         console.error('Error getting video details or comments: ', error)

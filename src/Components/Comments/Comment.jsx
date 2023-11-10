@@ -1,6 +1,6 @@
-import './Comments.scss'
+import './Comment.scss'
 
-const Comments = ({value}) => {
+const Comment = ({value}) => {
     return (
         <div className='card'>
             <h3 className='card__title'>Last Comment</h3>
@@ -8,4 +8,4 @@ const Comments = ({value}) => {
         </div>
     )
 }
-export default Comments
+export default Comment

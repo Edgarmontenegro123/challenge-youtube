@@ -18,10 +18,20 @@
     background-color: $darkRed;
   }
 }
+#ShowAllCommentsButton{
+  height: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media screen and (max-width: 800px) {
   .button {
     width: 25vw;
-    margin: 0 auto;
+  }
+  #ShowAllCommentsButton{
+    margin-bottom: 6rem;
   }
 }

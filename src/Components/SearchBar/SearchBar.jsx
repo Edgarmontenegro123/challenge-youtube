@@ -1,15 +1,20 @@
 import React, {useState} from 'react';
 import Button from '../Button/Button.jsx';
 import SearchResult from "../SearchResult/SearchResult.jsx";
-import Comments from "../Comments/Comments.jsx";
+import Comment from "../Comments/Comment.jsx";
 import {getUrlAxios, sendLatestVideoTitle} from "../../Functions/Functions.jsx";
 import VideoTitleDisplay from "../VideoTitleDisplay/VideoTitleDisplay.jsx";
+import ShowAllCommentsButton from "../ShowAllCommentsButton/ShowAllCommentsButton.jsx";
+import AllComments from "../Comments/AllComments.jsx";
 import './SearchBar.scss'
 
 const SearchBar = () => {
     const [searchValue, setSearchValue] = useState('');
     const [showTitleResult, setShowTitleResult] = useState('')
     const [showCommentResult, setShowCommentResult] = useState('')
+    const [allComments, setAllComments] = useState([])
+    const [showAllComments, setShowAllComments] = useState(false);
+    const [videoViews, setVideoViews] = useState(null)
 
     const handleSearchChange = (e) => {
         setSearchValue(e.target.value);
@@ -17,44 +22,53 @@ const SearchBar = () => {
 
     const handleSearchSubmit = async (e) => {
         e.preventDefault();
+        setShowAllComments(false)
         //Find in server
         const titleResult = await getUrlAxios(searchValue)
+
 
         if (titleResult && titleResult.videoTitle) {
             await sendLatestVideoTitle(titleResult.videoTitle);
         }
-
-        setShowTitleResult(searchValue)
         setSearchValue('')
-
-
         setShowTitleResult(titleResult.videoTitle)
         setShowCommentResult(titleResult.mostRecentComment)
+        setAllComments(titleResult.comments);
+        setVideoViews(titleResult.videoViews)
     };
 
+    const handleShowAllComments = () => {
+        setShowAllComments(true);
+        console.log('Views SearchBar ---> ', videoViews)
+    }
+
     return (
-        <form onSubmit={handleSearchSubmit}>
-            <div className = 'searchBar'>
-                <div className = 'searchBar__container'>
-                    <input
-                        type='text'
-                        className = 'searchBar__input'
-                        placeholder='Enter a URL'
-                        value={searchValue}
-                        onChange={handleSearchChange}
-                    />
-                    <Button
-                        className = 'button'
-                        id='searchBar__button'
-                        type='submit'
-                        text = 'Search'
-                    />
+        <>
+            <form onSubmit={handleSearchSubmit}>
+                <div className = 'searchBar'>
+                    <div className = 'searchBar__container'>
+                        <input
+                            type='text'
+                            className = 'searchBar__input'
+                            placeholder='Enter a URL'
+                            value={searchValue}
+                            onChange={handleSearchChange}
+                        />
+                        <Button
+                            className = 'button'
+                            id='searchBar__button'
+                            type='submit'
+                            text = 'Search'
+                        />
+                    </div>
                 </div>
-            </div>
-            <VideoTitleDisplay/>
-            {showTitleResult && <SearchResult value={showTitleResult}/>}
-            {showTitleResult && <Comments value={showCommentResult}/>}
-        </form>
+                <VideoTitleDisplay/>
+                {showTitleResult && <SearchResult value={showTitleResult}/>}
+                {showTitleResult && <Comment value={showCommentResult} showAll={showAllComments}/>}
+            </form>
+            {showTitleResult && <ShowAllCommentsButton text='More Comment!' onClick={handleShowAllComments}/>}
+            {showAllComments && <AllComments allComments={allComments} videoViews={videoViews} />}
+        </>
     );
 }
 export default SearchBar;
