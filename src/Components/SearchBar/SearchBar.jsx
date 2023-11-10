@@ -76,7 +76,7 @@ const SearchBar = () => {
                 {showTitleResult && <SearchResult value={showTitleResult}/>}
                 {showTitleResult && <Comment value={showCommentResult} showAll={showAllComments}/>}
             </form>
-            {showTitleResult && <ShowAllCommentsButton text='More Comment!' onClick={handleShowAllComments}/>}
+            {showTitleResult && <ShowAllCommentsButton text='More Comments!' onClick={handleShowAllComments}/>}
             {showAllComments && <AllComments allComments={allComments} videoViews={videoViews} />}
             {showAllComments && <MediaPlayer/>}
         </>
