@@ -39,7 +39,6 @@ const SearchBar = () => {
 
     const handleShowAllComments = () => {
         setShowAllComments(true);
-        console.log('Views SearchBar ---> ', videoViews)
     }
 
     return (
