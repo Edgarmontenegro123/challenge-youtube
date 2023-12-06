@@ -9,7 +9,7 @@
 <img src = '/src/assets/youtubeImage.png' height = '300px' width = '450px' alt="">
 <img src = '/src/assets/youtubeImage2.png' height = '300px' width = '450px' alt="">
 <img src = '/src/assets/youtubeImage3.png' height = '300px' width = '450px' alt="">
-<img src = '/src/assets/youtubeImage4.png' height = '300px' width = '450px' alt="">
+<img src = '/src/assets/youtubeImage4.png' height = '450px' width = '300px' alt="">
 
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
