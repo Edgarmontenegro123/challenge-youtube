@@ -22,15 +22,12 @@
   }
 }
 .allComments{
-  margin: 2rem 3rem 1rem;
+  margin: 2rem 3rem 10rem;
 }
 
 @media screen and (max-width: 800px) {
   .card {
     margin-top: 2rem;
     width: 20rem;
-  }
-  .allComments{
-    margin: 2rem 3rem 1rem;
   }
 }

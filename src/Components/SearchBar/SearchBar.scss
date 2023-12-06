@@ -1,8 +1,11 @@
 @import '../../index.scss';
 
+.searchBarTitle{
+  text-align: center;
+}
 .searchBar {
   display: flex;
-  flex-direction: column; /* Cambia la dirección de flexión a 'column' para dispositivos móviles */
+  flex-direction: column;
   align-items: center;
   width: 100%;
   margin-top: 1rem;
@@ -10,14 +13,14 @@
 
   &__container {
     display: flex;
-    flex-direction: column; /* Cambia la dirección de flexión a 'column' para dispositivos móviles */
+    flex-direction: column;
     align-items: center;
   }
 
   &__input {
     text-align: center;
     width: 30vw;
-    margin: 1rem 0; /* Cambia el margen para separar el campo de entrada en dispositivos móviles */
+    margin: 1rem 0;
     outline: none;
     border: none;
     border-radius: 5px;
@@ -26,7 +29,11 @@
   }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (max-width: 800px) {
+  .searchBarTitle{
+    font-size: 1rem;
+    margin: 2rem;
+  }
   .searchBar {
     display: flex;
     align-items: center;

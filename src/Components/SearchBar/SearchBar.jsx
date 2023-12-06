@@ -6,7 +6,6 @@ import {getUrlAxios, sendLatestVideoTitle} from "../../Functions/Functions.jsx";
 import VideoTitleDisplay from "../VideoTitleDisplay/VideoTitleDisplay.jsx";
 import ShowAllCommentsButton from "../ShowAllCommentsButton/ShowAllCommentsButton.jsx";
 import AllComments from "../Comments/AllComments.jsx";
-import MediaPlayer from "../MediaPlayer/Mediaplayer.jsx";
 import './SearchBar.scss'
 
 const SearchBar = () => {
@@ -55,6 +54,7 @@ const SearchBar = () => {
     return (
         <>
             <form onSubmit={handleSearchSubmit}>
+                <h1 className = 'searchBarTitle'>Agrega una URL de Youtube y encuentra fácilmente el título del video, sus vistas y sus comentarios!</h1>
                 <div className = 'searchBar'>
                     <div className = 'searchBar__container'>
                         <input
@@ -77,8 +77,8 @@ const SearchBar = () => {
                 {showTitleResult && <Comment value={showCommentResult} showAll={showAllComments}/>}
             </form>
             {showTitleResult && <ShowAllCommentsButton text='More Comments!' onClick={handleShowAllComments}/>}
-            {showAllComments && <AllComments allComments={allComments} videoViews={videoViews} />}
-            {showAllComments && <MediaPlayer/>}
+            {showAllComments && <AllComments allComments={allComments} videoViews={videoViews} className='showAllComments' />}
+            {/*{showAllComments && <MediaPlayer/>}*/}
         </>
     );
 }
