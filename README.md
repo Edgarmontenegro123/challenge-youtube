@@ -1,4 +1,4 @@
-# Unilingo Challenge
+# Youtube Challenge
 
 ## https://unilingo-youtube.vercel.app/
 
@@ -6,9 +6,10 @@
 
 # Technologies
 ## JavaScript (react), HTML, SASS (CSS), Sweetalert2, FontAwesome, Node js (express)
-<img src = '/src/assets/unilingoImage.png' height = '300px' width = '450px' alt="">
-<img src = '/src/assets/unilingoImage2.png' height = '300px' width = '450px' alt="">
-<img src = '/src/assets/unilingoImage3.png' height = '300px' width = '450px' alt="">
+<img src = '/src/assets/youtubeImage.png' height = '300px' width = '450px' alt="">
+<img src = '/src/assets/youtubeImage2.png' height = '300px' width = '450px' alt="">
+<img src = '/src/assets/youtubeImage3.png' height = '300px' width = '450px' alt="">
+<img src = '/src/assets/youtubeImage4.png' height = '300px' width = '450px' alt="">
 
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
